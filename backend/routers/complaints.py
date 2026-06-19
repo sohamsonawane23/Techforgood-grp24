@@ -8,7 +8,7 @@ import shutil
 from database import get_db
 import models
 import schemas
-from ai_service import classify_complaint
+from image_classifier import classify_complaint_with_image
 
 router = APIRouter(prefix="/api/complaints", tags=["complaints"])
 
@@ -23,15 +23,18 @@ async def create_complaint(
     db: Session = Depends(get_db)
 ):
     image_url = None
+    image_path = None
+    
     if image:
         ext = image.filename.split(".")[-1]
         filename = f"{uuid.uuid4()}.{ext}"
-        filepath = os.path.join(UPLOAD_DIR, filename)
-        with open(filepath, "wb") as buffer:
+        image_path = os.path.join(UPLOAD_DIR, filename)
+        with open(image_path, "wb") as buffer:
             shutil.copyfileobj(image.file, buffer)
         image_url = f"/uploads/{filename}"
 
-    category, priority = classify_complaint(title, description)
+    # Use image-based classification with fallback to text-based
+    category, priority = classify_complaint_with_image(title, description, image_path)
 
     db_complaint = models.Complaint(
         title=title,
