@@ -1,0 +1,22 @@
+# Virtual environments
+venv/
+env/
+.venv/
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+
+# Database
+*.db
+*.sqlite3
+
+# Uploaded user content
+uploads/
+
+# Environment / secrets
+.env
+
+# Misc
+*.log

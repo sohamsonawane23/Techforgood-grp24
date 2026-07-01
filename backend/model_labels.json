@@ -1,0 +1,14 @@
+{
+  "classes": [
+    "Damaged Road issues",
+    "Pothole Issues",
+    "Illegal Parking Issues",
+    "Broken Road Sign Issues",
+    "Fallen trees",
+    "Littering/Garbage on Public Places",
+    "Vandalism Issues",
+    "Dead Animal Pollution",
+    "Damaged concrete structures"
+  ],
+  "note": "Must match the exact class-index order used while training the H5 model. This model (model_epoch_01_valacc_0.8418.h5) was verified to output 9 classes - the 10th class from earlier label-file drafts ('Damaged Electric wires and poles') is intentionally omitted here since the model was never trained to predict it."
+}
