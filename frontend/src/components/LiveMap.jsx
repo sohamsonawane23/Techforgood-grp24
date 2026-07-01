@@ -224,4 +224,3 @@ export default function LiveMap({ complaints, userLocation, height = 'h-72' }) {
       )}
     </div>
   );
-}
