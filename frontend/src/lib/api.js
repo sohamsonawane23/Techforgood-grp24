@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-export const API_BASE_URL = 'http://localhost:8000';
+export const API_BASE_URL = 'https://techforgood-grp24.onrender.com/';
 
 // Central axios instance. Attaches the saved auth token (if any) to
 // every request, and clears it automatically if the backend ever says
